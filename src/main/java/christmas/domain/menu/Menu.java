@@ -1,5 +1,7 @@
 package christmas.domain.menu;
 
+import christmas.vo.MenuQuantity;
+
 public enum Menu {
     //애피타이저
     MUSHROOM_SOUP(MenuType.APPETIZER, MenuName.MUSHROOM_SOUP, 6000),
@@ -31,7 +33,7 @@ public enum Menu {
         this.price = price;
     }
 
-    public MenuName getName() {
-        return menuName;
+    public int calculatePrice(MenuQuantity menuQuantity) {
+        return this.price * menuQuantity.getQuantity();
     }
 }
