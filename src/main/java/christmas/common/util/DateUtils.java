@@ -1,4 +1,4 @@
-package christmas.util;
+package christmas.common.util;
 
 import christmas.config.EventDate;
 import java.time.DayOfWeek;
