@@ -2,6 +2,7 @@ package christmas.domain.order;
 
 import christmas.domain.menu.Menu;
 import christmas.vo.MenuQuantity;
+import christmas.vo.TotalAmount;
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -20,10 +21,12 @@ public class Order {
         menuOrders.put(menu, quantity);
     }
 
-    public int calculateTotalPrice() {
-        return menuOrders.entrySet().stream()
+    public TotalAmount calculateBeforeDiscount() {
+        int total = menuOrders.entrySet().stream()
                 .mapToInt(this::calculatePrice)
                 .sum();
+
+        return TotalAmount.from(total);
     }
 
     private int calculatePrice(Map.Entry<Menu, MenuQuantity> entry) {

@@ -5,7 +5,6 @@ import christmas.vo.MenuQuantity;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.stream.Stream;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -35,11 +34,11 @@ public class OrderTest {
     @ParameterizedTest(name = "{index}번 케이스:  {1}원")
     @MethodSource("dataProvider")
     @DisplayName("할인 전 총 주문 금액 계산 테스트")
-    public void testCalculateTotalPrice(@NotNull EnumMap<Menu, MenuQuantity> menuOrders, int expectedTotalPrice) {
+    public void testCalculateTotalPrice(EnumMap<Menu, MenuQuantity> menuOrders, int expectedTotalPrice) {
         Order order = Order.create();
         menuOrders.forEach(order::addMenu);
 
-        int actualTotalPrice = order.calculateTotalPrice();
+        int actualTotalPrice = order.calculateBeforeDiscount().getAmount();
 
         Assertions.assertEquals(expectedTotalPrice, actualTotalPrice, "Calculated total price should match expected price.");
     }
