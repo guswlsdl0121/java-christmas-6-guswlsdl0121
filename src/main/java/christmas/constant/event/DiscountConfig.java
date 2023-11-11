@@ -4,7 +4,7 @@ public enum DiscountConfig {
     DISCOUNT_START_AMOUNT(1000),
     DISCOUNT_INCREMENT(100),
 
-    WEEKDAY_DISCOUNT_PER_ITEM(2023);
+    DISCOUNT_PER_ITEM(2023);
 
     private final int value;
 

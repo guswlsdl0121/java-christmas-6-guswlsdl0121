@@ -34,4 +34,11 @@ public class Orders {
                 .mapToInt(item -> item.calculateDiscount(discountPerItem))
                 .sum();
     }
+
+    public int calculateMainDiscount(int discountPerItem) {
+        return orderItems.stream()
+                .filter(OrderItem::isMain)
+                .mapToInt(item -> item.calculateDiscount(discountPerItem))
+                .sum();
+    }
 }

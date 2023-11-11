@@ -12,6 +12,10 @@ public record OrderItem(Menu menu, MenuQuantity quantity) {
         return menu.isDessert();
     }
 
+    public boolean isMain() {
+        return menu.isMain();
+    }
+
     public int calculateDiscount(int discountPerItem) {
         return quantity.quantity() * discountPerItem;
     }

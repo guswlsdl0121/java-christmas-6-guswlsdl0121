@@ -20,6 +20,11 @@ public class DateUtils {
 
     public static boolean isWeekday(LocalDate date) {
         DayOfWeek day = date.getDayOfWeek();
-        return !((day == DayOfWeek.FRIDAY) || (day == DayOfWeek.SATURDAY));
+        return !(day == DayOfWeek.FRIDAY || day == DayOfWeek.SATURDAY);
+    }
+
+    public static boolean isWeekend(LocalDate date) {
+        DayOfWeek day = date.getDayOfWeek();
+        return day == DayOfWeek.FRIDAY || day == DayOfWeek.SATURDAY;
     }
 }

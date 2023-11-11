@@ -40,6 +40,10 @@ public enum Menu {
     }
 
     public boolean isDessert() {
-        return this == CHOCO_CAKE || this == ICE_CREAM;
+        return this.menuType == MenuType.DESSERT;
+    }
+
+    public boolean isMain() {
+        return this.menuType == MenuType.MAIN;
     }
 }
