@@ -10,8 +10,8 @@ public class DateUtils {
         return LocalDate.of(DateConfig.YEAR.getValue(), DateConfig.MONTH.getValue(), day);
     }
 
-    public static boolean isChristmasDay(int day) {
-        return day == DateConfig.CHRISTMAS_DATE.getValue();
+    public static boolean isChristmasDay(LocalDate day) {
+        return day.getDayOfMonth() == DateConfig.CHRISTMAS_DATE.getValue();
     }
 
     public static boolean isEligibleForDDayDiscount(LocalDate date) {
@@ -26,5 +26,9 @@ public class DateUtils {
     public static boolean isWeekend(LocalDate date) {
         DayOfWeek day = date.getDayOfWeek();
         return day == DayOfWeek.FRIDAY || day == DayOfWeek.SATURDAY;
+    }
+    public static boolean isSunday(LocalDate date) {
+        DayOfWeek day = date.getDayOfWeek();
+        return day == DayOfWeek.SUNDAY;
     }
 }
