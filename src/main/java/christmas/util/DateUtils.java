@@ -1,17 +1,19 @@
 package christmas.util;
 
-import christmas.constant.event.EventDate;
-import java.time.DayOfWeek;
+import christmas.constant.event.DateConfig;
 import java.time.LocalDate;
 
 public class DateUtils {
 
-    public static DayOfWeek getDayOfWeek(int day) {
-        LocalDate date = LocalDate.of(EventDate.YEAR.getValue(), EventDate.MONTH.getValue(), day);
-        return date.getDayOfWeek();
+    public static LocalDate getEventLocalDate(int day) {
+        return LocalDate.of(DateConfig.YEAR.getValue(), DateConfig.MONTH.getValue(), day);
     }
 
     public static boolean isChristmasDay(int day) {
-        return day == EventDate.CHRISTMAS_DATE.getValue();
+        return day == DateConfig.CHRISTMAS_DATE.getValue();
+    }
+
+    public static boolean isEligibleForDDayDiscount(LocalDate date) {
+        return date.getDayOfMonth() <= DateConfig.CHRISTMAS_DATE.getValue();
     }
 }

@@ -1,6 +1,6 @@
 package study;
 
-import christmas.constant.event.EventDate;
+import christmas.constant.event.DateConfig;
 import java.time.DateTimeException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -13,7 +13,7 @@ public class WeekTest {
     @DisplayName("년, 월, 일을 입력하고 LocalDate를 생성하면 getDayOfWeek를 통해 요일 객체를 생성할 수 있다.")
     void testFindWeekInDecember() {
         //given
-        LocalDate testDay = LocalDate.of(EventDate.YEAR.getValue(), EventDate.MONTH.getValue(), 1);
+        LocalDate testDay = LocalDate.of(DateConfig.YEAR.getValue(), DateConfig.MONTH.getValue(), 1);
 
         //when
         DayOfWeek testDayOfWeek = testDay.getDayOfWeek();
@@ -31,7 +31,7 @@ public class WeekTest {
         //then
         Assertions.assertThrows(
                 DateTimeException.class,
-                () -> LocalDate.of(EventDate.YEAR.getValue(),
-                EventDate.MONTH.getValue(), invalidDay));
+                () -> LocalDate.of(DateConfig.YEAR.getValue(),
+                DateConfig.MONTH.getValue(), invalidDay));
     }
 }

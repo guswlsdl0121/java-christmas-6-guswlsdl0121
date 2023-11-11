@@ -1,7 +1,6 @@
-package christmas.common.strategy;
+package christmas.strategy.reward;
 
 import christmas.domain.menu.Menu;
-import christmas.strategy.reward.ChampagneRewardStrategy;
 import christmas.vo.order.MenuQuantity;
 import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalAmount;

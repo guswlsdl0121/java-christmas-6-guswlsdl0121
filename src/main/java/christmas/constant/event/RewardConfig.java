@@ -2,13 +2,13 @@ package christmas.constant.event;
 
 import christmas.domain.menu.Menu;
 
-public enum EventReward {
+public enum RewardConfig {
     CHAMPAGNE_REWARD(Menu.CHAMPAGNE, 120000);
 
     private final Menu rewardMenu;
     private final int rewardThreshold;
 
-    EventReward(Menu rewardMenu, int rewardThreshold) {
+    RewardConfig(Menu rewardMenu, int rewardThreshold) {
         this.rewardMenu = rewardMenu;
         this.rewardThreshold = rewardThreshold;
     }

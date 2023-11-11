@@ -1,13 +1,13 @@
 package christmas.constant.event;
 
-public enum EventDate {
+public enum DateConfig {
     YEAR(2023),
     MONTH(12),
     CHRISTMAS_DATE(25);
 
     private final int value;
 
-    EventDate(int value) {
+    DateConfig(int value) {
         this.value = value;
     }
 

@@ -20,7 +20,7 @@ public class Orders {
         orderItems.add(orderItem);
     }
 
-    public TotalAmount calculateBeforeDiscount() {
+    public TotalAmount calculateTotalAmountBeforeDiscount() {
         int total = orderItems.stream()
                 .mapToInt(OrderItem::calculateTotalPrice)
                 .sum();

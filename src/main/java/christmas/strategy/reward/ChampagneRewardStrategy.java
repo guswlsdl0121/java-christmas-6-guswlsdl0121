@@ -1,6 +1,6 @@
 package christmas.strategy.reward;
 
-import christmas.constant.event.EventReward;
+import christmas.constant.event.RewardConfig;
 import christmas.domain.menu.Menu;
 import christmas.vo.order.MenuQuantity;
 import christmas.vo.order.OrderItem;
@@ -17,13 +17,13 @@ public class ChampagneRewardStrategy implements RewardStrategy {
     }
 
     private boolean isEligibleForReward(TotalAmount amount) {
-        int rewardThreshold = EventReward.CHAMPAGNE_REWARD.getRewardThreshold();
+        int rewardThreshold = RewardConfig.CHAMPAGNE_REWARD.getRewardThreshold();
         return amount.isEqualOrGreater(rewardThreshold);
     }
 
     private OrderItem createRewardItem(TotalAmount amount) {
-        int rewardThreshold = EventReward.CHAMPAGNE_REWARD.getRewardThreshold();
-        Menu rewardMenu = EventReward.CHAMPAGNE_REWARD.getRewardMenu();
+        int rewardThreshold = RewardConfig.CHAMPAGNE_REWARD.getRewardThreshold();
+        Menu rewardMenu = RewardConfig.CHAMPAGNE_REWARD.getRewardMenu();
 
         int champagneCount = amount.divideBy(rewardThreshold);
 
