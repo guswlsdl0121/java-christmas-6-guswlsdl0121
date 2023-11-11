@@ -1,8 +1,8 @@
 package christmas.domain.order;
 
-import christmas.vo.OrderItem;
+import christmas.vo.order.OrderItem;
 import christmas.domain.menu.Menu;
-import christmas.vo.MenuQuantity;
+import christmas.vo.order.MenuQuantity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,9 +1,10 @@
 package christmas.common.strategy;
 
 import christmas.domain.menu.Menu;
-import christmas.vo.MenuQuantity;
-import christmas.vo.OrderItem;
-import christmas.vo.TotalAmount;
+import christmas.strategy.reward.ChampagneRewardStrategy;
+import christmas.vo.order.MenuQuantity;
+import christmas.vo.order.OrderItem;
+import christmas.vo.order.TotalAmount;
 import java.util.Optional;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;

@@ -1,10 +1,10 @@
-package christmas.common.strategy.reward;
+package christmas.strategy.reward;
 
-import christmas.config.EventReward;
+import christmas.constant.event.EventReward;
 import christmas.domain.menu.Menu;
-import christmas.vo.MenuQuantity;
-import christmas.vo.OrderItem;
-import christmas.vo.TotalAmount;
+import christmas.vo.order.MenuQuantity;
+import christmas.vo.order.OrderItem;
+import christmas.vo.order.TotalAmount;
 import java.util.Optional;
 
 public class ChampagneRewardStrategy implements RewardStrategy {

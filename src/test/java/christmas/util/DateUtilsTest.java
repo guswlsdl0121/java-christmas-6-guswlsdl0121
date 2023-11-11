@@ -1,7 +1,6 @@
 package christmas.util;
 
-import christmas.common.util.DateUtils;
-import christmas.config.EventDate;
+import christmas.constant.event.EventDate;
 import java.time.DayOfWeek;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

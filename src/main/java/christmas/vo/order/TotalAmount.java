@@ -1,4 +1,4 @@
-package christmas.vo;
+package christmas.vo.order;
 
 public record TotalAmount(int amount) {
 

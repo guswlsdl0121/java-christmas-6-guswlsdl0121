@@ -1,7 +1,7 @@
 package christmas.domain.order;
 
-import christmas.vo.OrderItem;
-import christmas.vo.TotalAmount;
+import christmas.vo.order.OrderItem;
+import christmas.vo.order.TotalAmount;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package christmas.config;
+package christmas.constant.event;
 
 import christmas.domain.menu.Menu;
 

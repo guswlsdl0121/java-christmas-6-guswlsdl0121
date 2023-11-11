@@ -1,4 +1,4 @@
-package christmas.config;
+package christmas.constant.event;
 
 public enum EventDate {
     YEAR(2023),

@@ -1,6 +1,6 @@
-package christmas.common.util;
+package christmas.util;
 
-import christmas.config.EventDate;
+import christmas.constant.event.EventDate;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 

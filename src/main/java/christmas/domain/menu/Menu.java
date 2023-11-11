@@ -1,6 +1,8 @@
 package christmas.domain.menu;
 
-import christmas.vo.MenuQuantity;
+import christmas.constant.menu.MenuName;
+import christmas.constant.menu.MenuType;
+import christmas.vo.order.MenuQuantity;
 
 public enum Menu {
     //애피타이저
