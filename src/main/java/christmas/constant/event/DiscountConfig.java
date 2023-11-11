@@ -1,16 +1,19 @@
 package christmas.constant.event;
 
-public enum DDayDiscountConfig {
+public enum DiscountConfig {
     DISCOUNT_START_AMOUNT(1000),
-    DISCOUNT_INCREMENT(100);
+    DISCOUNT_INCREMENT(100),
+
+    WEEKDAY_DISCOUNT_PER_ITEM(2023);
 
     private final int value;
 
-    DDayDiscountConfig(int value) {
+    DiscountConfig(int value) {
         this.value = value;
     }
 
     public int getValue() {
-        return value;
+        return this.value;
     }
 }
+

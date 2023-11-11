@@ -27,4 +27,11 @@ public class Orders {
 
         return new TotalAmount(total);
     }
+
+    public int calculateDessertDiscount(int discountPerItem) {
+        return orderItems.stream()
+                .filter(OrderItem::isDessert) // Dessert 메뉴인지 확인
+                .mapToInt(item -> item.calculateDiscount(discountPerItem))
+                .sum();
+    }
 }

@@ -38,4 +38,8 @@ public enum Menu {
     public int calculatePrice(MenuQuantity menuQuantity) {
         return this.price * menuQuantity.quantity();
     }
+
+    public boolean isDessert() {
+        return this == CHOCO_CAKE || this == ICE_CREAM;
+    }
 }

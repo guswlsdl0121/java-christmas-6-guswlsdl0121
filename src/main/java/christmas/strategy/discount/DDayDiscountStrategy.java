@@ -1,6 +1,6 @@
 package christmas.strategy.discount;
 
-import christmas.constant.event.DDayDiscountConfig;
+import christmas.constant.event.DiscountConfig;
 import christmas.constant.event.DiscountType;
 import christmas.domain.order.Orders;
 import christmas.util.DateUtils;
@@ -22,8 +22,8 @@ public class DDayDiscountStrategy implements DiscountStrategy {
     }
 
     private int calculateDiscountAmount(LocalDate date) {
-        int startAmount = DDayDiscountConfig.DISCOUNT_START_AMOUNT.getValue();
-        int increment = DDayDiscountConfig.DISCOUNT_INCREMENT.getValue();
+        int startAmount = DiscountConfig.DISCOUNT_START_AMOUNT.getValue();
+        int increment = DiscountConfig.DISCOUNT_INCREMENT.getValue();
         int dayOfMonth = date.getDayOfMonth();
 
         return startAmount + increment * (dayOfMonth - FIRST_DAY_OF_MONTH);
