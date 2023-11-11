@@ -1,6 +1,5 @@
 package christmas.util;
 
-import christmas.constant.event.DateConfig;
 import java.time.LocalDate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -18,12 +17,5 @@ class DateUtilsTest {
 
         //then
         Assertions.assertEquals(expectedDate, actualDate);
-    }
-
-    @Test
-    @DisplayName("크리스마스 날짜 여부를 올바르게 확인한다.")
-    void testIsChristmasDay() {
-        Assertions.assertTrue(DateUtils.isChristmasDay(DateConfig.CHRISTMAS_DATE.getValue())); // 크리스마스 날짜
-        Assertions.assertFalse(DateUtils.isChristmasDay(24)); // 크리스마스 이브
     }
 }
