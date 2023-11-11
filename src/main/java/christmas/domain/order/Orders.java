@@ -4,6 +4,7 @@ import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalAmount;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Orders {
     private final List<OrderItem> orderItems;
@@ -29,15 +30,16 @@ public class Orders {
     }
 
     public int calculateDessertDiscount(int discountPerItem) {
-        return orderItems.stream()
-                .filter(OrderItem::isDessert) // Dessert 메뉴인지 확인
-                .mapToInt(item -> item.calculateDiscount(discountPerItem))
-                .sum();
+        return calculateDiscountFor(OrderItem::isDessert, discountPerItem);
     }
 
     public int calculateMainDiscount(int discountPerItem) {
+        return calculateDiscountFor(OrderItem::isMain, discountPerItem);
+    }
+
+    private int calculateDiscountFor(Predicate<OrderItem> filterCondition, int discountPerItem) {
         return orderItems.stream()
-                .filter(OrderItem::isMain)
+                .filter(filterCondition)
                 .mapToInt(item -> item.calculateDiscount(discountPerItem))
                 .sum();
     }

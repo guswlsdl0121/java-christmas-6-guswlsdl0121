@@ -5,30 +5,40 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class DateUtils {
-
+    // 지정된 날짜 반환
     public static LocalDate getEventLocalDate(int day) {
         return LocalDate.of(DateConfig.YEAR.getValue(), DateConfig.MONTH.getValue(), day);
     }
 
-    public static boolean isChristmasDay(LocalDate day) {
-        return day.getDayOfMonth() == DateConfig.CHRISTMAS_DATE.getValue();
+    // D-Day 이벤트 기간인지 확인
+    public static boolean isInDDayEvent(LocalDate date) {
+        return date.getMonthValue() == DateConfig.MONTH.getValue() &&
+                date.getDayOfMonth() <= DateConfig.CHRISTMAS_DATE.getValue();
     }
 
-    public static boolean isEligibleForDDayDiscount(LocalDate date) {
-        return date.getDayOfMonth() <= DateConfig.CHRISTMAS_DATE.getValue();
+    // 특별한 날인지 확인 (일요일 또는 크리스마스)
+    public static boolean isSpecial(LocalDate date) {
+        return isDayOfWeek(date, DayOfWeek.SUNDAY) || isChristmasDay(date);
     }
 
+    // 평일인지 확인
     public static boolean isWeekday(LocalDate date) {
-        DayOfWeek day = date.getDayOfWeek();
-        return !(day == DayOfWeek.FRIDAY || day == DayOfWeek.SATURDAY);
+        return !isDayOfWeek(date, DayOfWeek.FRIDAY) && !isDayOfWeek(date, DayOfWeek.SATURDAY);
     }
 
+    // 주말인지 확인
     public static boolean isWeekend(LocalDate date) {
-        DayOfWeek day = date.getDayOfWeek();
-        return day == DayOfWeek.FRIDAY || day == DayOfWeek.SATURDAY;
+        return isDayOfWeek(date, DayOfWeek.FRIDAY) || isDayOfWeek(date, DayOfWeek.SATURDAY);
     }
-    public static boolean isSunday(LocalDate date) {
-        DayOfWeek day = date.getDayOfWeek();
-        return day == DayOfWeek.SUNDAY;
+
+    // 특정 요일인지 확인 (도우미 메서드)
+    private static boolean isDayOfWeek(LocalDate date, DayOfWeek day) {
+        return date.getDayOfWeek() == day;
+    }
+
+    // 크리스마스인지 확인
+    private static boolean isChristmasDay(LocalDate date) {
+        return date.getMonthValue() == DateConfig.MONTH.getValue() &&
+                date.getDayOfMonth() == DateConfig.CHRISTMAS_DATE.getValue();
     }
 }

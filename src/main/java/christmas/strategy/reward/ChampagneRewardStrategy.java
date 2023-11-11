@@ -27,7 +27,7 @@ public class ChampagneRewardStrategy implements RewardStrategy {
 
         int champagneCount = amount.divideBy(rewardThreshold);
 
-        return new OrderItem (rewardMenu, new MenuQuantity(champagneCount));
+        return new OrderItem(rewardMenu, new MenuQuantity(champagneCount));
     }
 }
 
