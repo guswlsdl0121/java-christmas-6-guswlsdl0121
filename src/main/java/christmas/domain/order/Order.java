@@ -1,35 +1,30 @@
 package christmas.domain.order;
 
-import christmas.domain.menu.Menu;
-import christmas.vo.MenuQuantity;
+import christmas.vo.OrderItem;
 import christmas.vo.TotalAmount;
-import java.util.EnumMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
-    private final EnumMap<Menu, MenuQuantity> menuOrders;
+    private final List<OrderItem> orderItems;
 
     private Order() {
-        this.menuOrders = new EnumMap<>(Menu.class);
+        this.orderItems = new ArrayList<>();
     }
 
     public static Order create() {
         return new Order();
     }
 
-    public void addMenu(Menu menu, MenuQuantity quantity) {
-        menuOrders.put(menu, quantity);
+    public void addMenu(OrderItem orderItem) {
+        orderItems.add(orderItem);
     }
 
     public TotalAmount calculateBeforeDiscount() {
-        int total = menuOrders.entrySet().stream()
-                .mapToInt(this::calculatePrice)
+        int total = orderItems.stream()
+                .mapToInt(OrderItem::calculateTotalPrice)
                 .sum();
 
         return TotalAmount.from(total);
-    }
-
-    private int calculatePrice(Map.Entry<Menu, MenuQuantity> entry) {
-        return entry.getKey().calculatePrice(entry.getValue());
     }
 }
