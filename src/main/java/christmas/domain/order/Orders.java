@@ -5,15 +5,15 @@ import christmas.vo.TotalAmount;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order {
+public class Orders {
     private final List<OrderItem> orderItems;
 
-    private Order() {
+    private Orders() {
         this.orderItems = new ArrayList<>();
     }
 
-    public static Order create() {
-        return new Order();
+    public static Orders create() {
+        return new Orders();
     }
 
     public void addMenu(OrderItem orderItem) {

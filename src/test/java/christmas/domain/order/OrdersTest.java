@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
-public class OrderTest {
+public class OrdersTest {
 
     private static Stream<Arguments> dataProvider() {
         return Stream.of(
@@ -34,12 +34,12 @@ public class OrderTest {
     @MethodSource("dataProvider")
     @DisplayName("할인 전 총 주문 금액 계산 테스트")
     public void testCalculateTotalPrice(OrderItem[] orderItems, int expectedTotalPrice) {
-        Order order = Order.create();
+        Orders orders = Orders.create();
         for (OrderItem item : orderItems) {
-            order.addMenu(item);
+            orders.addMenu(item);
         }
 
-        int actualTotalPrice = order.calculateBeforeDiscount().amount();
+        int actualTotalPrice = orders.calculateBeforeDiscount().amount();
 
         Assertions.assertEquals(expectedTotalPrice, actualTotalPrice, "Calculated total price should match expected price.");
     }

@@ -1,4 +1,4 @@
-package christmas.common.strategy;
+package christmas.common.strategy.reward;
 
 import christmas.config.EventReward;
 import christmas.domain.menu.Menu;
