@@ -32,6 +32,6 @@ public class WeekTest {
         Assertions.assertThrows(
                 DateTimeException.class,
                 () -> LocalDate.of(DateConfig.YEAR.getValue(),
-                DateConfig.MONTH.getValue(), invalidDay));
+                        DateConfig.MONTH.getValue(), invalidDay));
     }
 }

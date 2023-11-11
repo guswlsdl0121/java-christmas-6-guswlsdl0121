@@ -15,9 +15,12 @@ class ChampagneRewardStrategyTest {
     private static Stream<Arguments> provideTotalAmountsForRewards() {
         return Stream.of(
                 Arguments.of(119999, Optional.empty()), // 보상을 받을 수 없는 경우
-                Arguments.of(120000, Optional.of(new OrderItem(Menu.CHAMPAGNE, new MenuQuantity(1)))), // 정확히 보상을 받을 수 있는 최소 금액
-                Arguments.of(240000, Optional.of(new OrderItem(Menu.CHAMPAGNE, new MenuQuantity(2)))), // 2개의 보상을 받을 수 있는 경우
-                Arguments.of(1100000, Optional.of(new OrderItem(Menu.CHAMPAGNE, new MenuQuantity(9)))) // 최대 보상을 받을 수 있는 경우
+                Arguments.of(120000, Optional.of(new OrderItem(Menu.CHAMPAGNE, new MenuQuantity(1)))),
+                // 정확히 보상을 받을 수 있는 최소 금액
+                Arguments.of(240000, Optional.of(new OrderItem(Menu.CHAMPAGNE, new MenuQuantity(2)))),
+                // 2개의 보상을 받을 수 있는 경우
+                Arguments.of(1100000, Optional.of(new OrderItem(Menu.CHAMPAGNE, new MenuQuantity(9))))
+                // 최대 보상을 받을 수 있는 경우
         );
     }
 
