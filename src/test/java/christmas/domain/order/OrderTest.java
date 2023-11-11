@@ -16,14 +16,14 @@ public class OrderTest {
         return Stream.of(
                 Arguments.of(
                         new OrderItem[]{
-                                OrderItem.of(Menu.MUSHROOM_SOUP, MenuQuantity.from(2)), // 예: 6000 * 2
-                                OrderItem.of(Menu.T_BONE_STEAK, MenuQuantity.from(1))  // 예: 55000 * 1
+                                new OrderItem(Menu.MUSHROOM_SOUP, new MenuQuantity(2)), // 예: 6000 * 2
+                                new OrderItem(Menu.T_BONE_STEAK, new MenuQuantity(1))  // 예: 55000 * 1
                         },
                         67000
                 ),
                 Arguments.of(
                         new OrderItem[]{
-                                OrderItem.of(Menu.T_BONE_STEAK, MenuQuantity.from(20)) // 예: 55000 * 20
+                                new OrderItem(Menu.T_BONE_STEAK, new MenuQuantity(20)) // 예: 55000 * 20
                         },
                         1100000
                 )
@@ -39,7 +39,7 @@ public class OrderTest {
             order.addMenu(item);
         }
 
-        int actualTotalPrice = order.calculateBeforeDiscount().getAmount();
+        int actualTotalPrice = order.calculateBeforeDiscount().amount();
 
         Assertions.assertEquals(expectedTotalPrice, actualTotalPrice, "Calculated total price should match expected price.");
     }

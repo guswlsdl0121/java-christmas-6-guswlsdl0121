@@ -34,6 +34,6 @@ public enum Menu {
     }
 
     public int calculatePrice(MenuQuantity menuQuantity) {
-        return this.price * menuQuantity.getQuantity();
+        return this.price * menuQuantity.quantity();
     }
 }

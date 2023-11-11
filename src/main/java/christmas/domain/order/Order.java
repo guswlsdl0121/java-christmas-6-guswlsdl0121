@@ -25,6 +25,6 @@ public class Order {
                 .mapToInt(OrderItem::calculateTotalPrice)
                 .sum();
 
-        return TotalAmount.from(total);
+        return new TotalAmount(total);
     }
 }
