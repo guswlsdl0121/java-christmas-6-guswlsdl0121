@@ -2,15 +2,16 @@ package christmas.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import christmas.common.factory.DiscountStrategyFactory;
 import christmas.domain.menu.Menu;
 import christmas.domain.order.Orders;
-import christmas.factory.DiscountStrategyFactory;
 import christmas.vo.discount.Discount;
 import christmas.vo.order.MenuQuantity;
 import christmas.vo.order.OrderItem;
 import java.time.LocalDate;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class DiscountControllerTest {
@@ -24,6 +25,7 @@ class DiscountControllerTest {
     }
 
     @Test
+    @DisplayName("할인 중복 적용 Test")
     void testProceedDiscountWithMultipleDiscounts() {
         Orders orders = Orders.create();
         orders.addMenu(new OrderItem(Menu.T_BONE_STEAK, new MenuQuantity(1))); // 메인

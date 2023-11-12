@@ -1,6 +1,6 @@
 package study;
 
-import christmas.constant.event.DateConfig;
+import christmas.common.constant.event.DateConfig;
 import java.time.DateTimeException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;

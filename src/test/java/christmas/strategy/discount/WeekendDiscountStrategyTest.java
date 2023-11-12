@@ -2,7 +2,8 @@ package christmas.strategy.discount;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import christmas.constant.event.DiscountType;
+import christmas.common.constant.event.DiscountType;
+import christmas.common.strategy.discount.WeekendDiscountStrategy;
 import christmas.domain.menu.Menu;
 import christmas.domain.order.Orders;
 import christmas.vo.discount.Discount;
@@ -12,6 +13,7 @@ import christmas.vo.order.OrderItem;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -47,6 +49,7 @@ class WeekendDiscountStrategyTest {
         );
     }
 
+    @DisplayName("주말 할인 적용 여부 확인")
     private static Orders createOrdersWithoutMainDishes() {
         Orders orders = Orders.create();
         orders.addMenu(new OrderItem(Menu.CHOCO_CAKE, new MenuQuantity(1)));

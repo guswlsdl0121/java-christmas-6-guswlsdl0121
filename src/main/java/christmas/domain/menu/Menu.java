@@ -1,7 +1,7 @@
 package christmas.domain.menu;
 
-import christmas.constant.menu.MenuName;
-import christmas.constant.menu.MenuType;
+import christmas.common.constant.menu.MenuName;
+import christmas.common.constant.menu.MenuType;
 import christmas.vo.order.MenuQuantity;
 
 public enum Menu {

@@ -2,7 +2,8 @@ package christmas.strategy.discount;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import christmas.constant.event.DiscountType;
+import christmas.common.constant.event.DiscountType;
+import christmas.common.strategy.discount.WeekdayDiscountStrategy;
 import christmas.domain.menu.Menu;
 import christmas.domain.order.Orders;
 import christmas.vo.discount.Discount;
@@ -12,6 +13,7 @@ import christmas.vo.order.OrderItem;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -45,6 +47,7 @@ class WeekdayDiscountStrategyTest {
         return orders;
     }
 
+    @DisplayName("주중 할인 적용 여부 확인")
     @ParameterizedTest
     @MethodSource("provideTestCases")
     void testCalculateDiscount(Orders orders, LocalDate date, Optional<Discount> expectedDiscount) {

@@ -1,5 +1,6 @@
 package christmas.util;
 
+import christmas.common.util.DateUtils;
 import java.time.LocalDate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
