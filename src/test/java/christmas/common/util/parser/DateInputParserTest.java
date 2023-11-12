@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-class DateInputNumberParserTest {
+class DateInputParserTest {
 
     private static Stream<Arguments> provideInputsForParsing() {
         return Stream.of(
@@ -29,7 +29,7 @@ class DateInputNumberParserTest {
     @ParameterizedTest
     @MethodSource("provideInputsForParsing")
     void testDateInputNumberParser(String input, LocalDate expectedDate, boolean expectException) {
-        DateInputNumberParser parser = new DateInputNumberParser();
+        DateInputParser parser = new DateInputParser();
         if (expectException) {
             Assertions.assertThrows(IllegalArgumentException.class, () -> parser.parse(input));
         } else {

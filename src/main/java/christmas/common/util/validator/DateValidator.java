@@ -1,11 +1,24 @@
 package christmas.common.util.validator;
 
-import java.time.LocalDate;
+import christmas.common.constant.message.ErrorMessage;
 
-public class DateValidator implements InputValidator<LocalDate> {
+public class DateValidator {
+    public static int validate(String input) {
+        validateNotBlank(input);
+        return validateIsValidNumber(input);
+    }
 
-    @Override
-    public void validate(LocalDate input) {
-        //Date의 추가적인 비지니스 예외를 이곳에 구현할 수 있다.
+    private static void validateNotBlank(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.IS_BLANK.getMessage());
+        }
+    }
+
+    private static int  validateIsValidNumber(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT.getMessage());
+        }
     }
 }
