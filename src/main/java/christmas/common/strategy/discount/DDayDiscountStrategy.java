@@ -2,7 +2,7 @@ package christmas.common.strategy.discount;
 
 import christmas.common.constant.event.DiscountConfig;
 import christmas.common.constant.event.DiscountType;
-import christmas.common.util.DateUtils;
+import christmas.common.util.DateUtil;
 import christmas.domain.order.Orders;
 import christmas.vo.discount.Discount;
 import christmas.vo.discount.DiscountAmount;
@@ -38,6 +38,6 @@ public class DDayDiscountStrategy implements DiscountStrategy {
 
     @Override
     public boolean isApplicable(LocalDate date) {
-        return DateUtils.isInDDayEvent(date);
+        return DateUtil.isInDDayEvent(date);
     }
 }

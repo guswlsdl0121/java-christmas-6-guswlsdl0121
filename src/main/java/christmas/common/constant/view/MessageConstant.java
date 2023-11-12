@@ -1,9 +1,8 @@
-package christmas.common.constant.message;
+package christmas.common.constant.view;
 
 public enum MessageConstant {
     LINE_SEPARATOR(System.lineSeparator()),
-    ERROR_PREFIX("[ERROR] "),
-    ;
+    ERROR_PREFIX("[ERROR] ");
     private final String value;
 
     MessageConstant(String value) {

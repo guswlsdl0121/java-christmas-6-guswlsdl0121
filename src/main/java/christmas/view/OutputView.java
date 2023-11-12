@@ -1,6 +1,6 @@
 package christmas.view;
 
-import christmas.common.constant.message.OutputMessage;
+import christmas.common.constant.view.OutputMessage;
 
 public class OutputView {
     public static void printStartMessage() {
@@ -10,6 +10,10 @@ public class OutputView {
 
     public static void printAnswerDateMessage() {
         System.out.println(OutputMessage.ASK_DATE.getMessage());
+    }
+
+    public static void printAnswerOrder() {
+        System.out.println(OutputMessage.ASK_ORDER.getMessage());
     }
 
     public static void printError(String errorMessage) {

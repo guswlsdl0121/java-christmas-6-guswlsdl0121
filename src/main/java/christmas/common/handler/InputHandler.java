@@ -1,6 +1,7 @@
-package christmas.common.util.handler;
+package christmas.common.handler;
 
-import christmas.common.util.parser.InputParser;
+import christmas.common.parser.InputParser;
+import christmas.common.validator.CommonValidator;
 import christmas.view.driver.ViewDriver;
 
 public class InputHandler<T> {
@@ -16,6 +17,7 @@ public class InputHandler<T> {
         String input = viewDriver.ask();
         while (true) {
             try {
+                CommonValidator.validateNotBlank(input);
                 return parser.parse(input);
             } catch (IllegalArgumentException e) {
                 input = viewDriver.errorAndAsk(e.getMessage());

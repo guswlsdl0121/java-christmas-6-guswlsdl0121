@@ -4,7 +4,7 @@ import christmas.common.constant.event.DateConfig;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
-public class DateUtils {
+public class DateUtil {
     // 지정된 날짜 반환
     public static LocalDate getEventLocalDate(int day) {
         return LocalDate.of(DateConfig.YEAR.getValue(), DateConfig.MONTH.getValue(), day);

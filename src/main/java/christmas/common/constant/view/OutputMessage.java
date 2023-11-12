@@ -1,4 +1,4 @@
-package christmas.common.constant.message;
+package christmas.common.constant.view;
 
 public enum OutputMessage {
     GREETING("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다."),

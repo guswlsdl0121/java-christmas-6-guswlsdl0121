@@ -2,7 +2,7 @@ package christmas.common.strategy.discount;
 
 import christmas.common.constant.event.DiscountConfig;
 import christmas.common.constant.event.DiscountType;
-import christmas.common.util.DateUtils;
+import christmas.common.util.DateUtil;
 import christmas.domain.order.Orders;
 import java.time.LocalDate;
 
@@ -20,6 +20,6 @@ public class WeekendDiscountStrategy extends AbstractDiscountStrategy {
 
     @Override
     public boolean isApplicable(LocalDate date) {
-        return DateUtils.isWeekend(date);
+        return DateUtil.isWeekend(date);
     }
 }

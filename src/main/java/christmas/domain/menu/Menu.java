@@ -3,6 +3,8 @@ package christmas.domain.menu;
 import christmas.common.constant.menu.MenuName;
 import christmas.common.constant.menu.MenuType;
 import christmas.vo.order.MenuQuantity;
+import java.util.Arrays;
+import java.util.Optional;
 
 public enum Menu {
     //애피타이저
@@ -33,6 +35,12 @@ public enum Menu {
         this.menuType = menuType;
         this.menuName = menuName;
         this.price = price;
+    }
+
+    public static Optional<Menu> findByMenuName(String menuNameStr) {
+        return Arrays.stream(Menu.values())
+                .filter(menu -> menu.menuName.matches(menuNameStr))
+                .findFirst();
     }
 
     public int calculatePrice(MenuQuantity menuQuantity) {

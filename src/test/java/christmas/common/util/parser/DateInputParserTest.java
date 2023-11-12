@@ -1,5 +1,6 @@
 package christmas.common.util.parser;
 
+import christmas.common.parser.DateInputParser;
 import java.time.LocalDate;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;

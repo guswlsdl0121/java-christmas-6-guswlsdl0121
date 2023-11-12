@@ -20,8 +20,8 @@ public enum MenuName {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
+    public boolean matches(String name) {
+        return this.name.equals(name);
     }
 }
 
