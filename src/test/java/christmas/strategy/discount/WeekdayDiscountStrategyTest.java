@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import christmas.constant.event.DiscountType;
 import christmas.domain.menu.Menu;
 import christmas.domain.order.Orders;
-import christmas.strategy.discount.regular.WeekdayDiscountStrategy;
 import christmas.vo.discount.Discount;
 import christmas.vo.discount.DiscountAmount;
 import christmas.vo.order.MenuQuantity;
@@ -50,12 +49,7 @@ class WeekdayDiscountStrategyTest {
     @MethodSource("provideTestCases")
     void testCalculateDiscount(Orders orders, LocalDate date, Optional<Discount> expectedDiscount) {
         WeekdayDiscountStrategy strategy = new WeekdayDiscountStrategy();
-
-        if (strategy.isApplicable(date)) {
-            Optional<Discount> actualDiscount = strategy.evaluateDiscount(orders);
-            assertEquals(expectedDiscount, actualDiscount);
-        } else {
-            assertEquals(expectedDiscount, Optional.empty());
-        }
+        Optional<Discount> actualDiscount = strategy.evaluateDiscount(orders, date);
+        assertEquals(expectedDiscount, actualDiscount);
     }
 }

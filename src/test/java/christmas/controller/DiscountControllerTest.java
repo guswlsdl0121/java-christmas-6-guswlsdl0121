@@ -19,7 +19,8 @@ class DiscountControllerTest {
 
     @BeforeEach
     void setUp() {
-        discountController = new DiscountController(new DiscountStrategyFactory(LocalDate.of(2023, 12, 3)));
+        DiscountStrategyFactory strategyFactory = new DiscountStrategyFactory();
+        discountController = new DiscountController(strategyFactory);
     }
 
     @Test

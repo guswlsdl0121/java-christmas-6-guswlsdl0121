@@ -2,7 +2,6 @@ package christmas.strategy.discount;
 
 import christmas.constant.event.DiscountType;
 import christmas.domain.order.Orders;
-import christmas.strategy.discount.period.DDayDiscountStrategy;
 import christmas.vo.discount.Discount;
 import java.time.LocalDate;
 import java.util.Optional;
@@ -25,15 +24,15 @@ class DDayDiscountStrategyTest {
     }
 
     @DisplayName("크리스마스 디데이 할인 적용 테스트")
-    @ParameterizedTest(name = "{index}번 케이스:  {1}원")
+    @ParameterizedTest(name = "{index}번 케이스: {1}원")
     @MethodSource("provideDatesForDiscounts")
     void testDDayDiscountStrategy(LocalDate date, int expectedDiscountAmount) {
         //given
-        DDayDiscountStrategy strategy = new DDayDiscountStrategy(date);
+        DDayDiscountStrategy strategy = new DDayDiscountStrategy();
         Orders mockOrders = Orders.create();
 
         //when
-        Optional<Discount> result = strategy.evaluateDiscount(mockOrders);
+        Optional<Discount> result = strategy.evaluateDiscount(mockOrders, date);
 
         //then
         if (expectedDiscountAmount > 0) {

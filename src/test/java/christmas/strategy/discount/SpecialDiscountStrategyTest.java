@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import christmas.constant.event.DiscountType;
 import christmas.domain.order.Orders;
-import christmas.strategy.discount.period.SpecialDiscountStrategy;
 import christmas.vo.discount.Discount;
 import christmas.vo.discount.DiscountAmount;
 import java.time.LocalDate;
@@ -42,8 +41,8 @@ class SpecialDiscountStrategyTest {
     @ParameterizedTest
     @MethodSource("provideTestCases")
     void testCalculateDiscount(Orders orders, LocalDate date, Optional<Discount> expectedDiscount) {
-        SpecialDiscountStrategy strategy = new SpecialDiscountStrategy(date);
-        Optional<Discount> actualDiscount = strategy.evaluateDiscount(orders);
+        SpecialDiscountStrategy strategy = new SpecialDiscountStrategy();
+        Optional<Discount> actualDiscount = strategy.evaluateDiscount(orders, date);
         assertEquals(expectedDiscount, actualDiscount);
     }
 }
