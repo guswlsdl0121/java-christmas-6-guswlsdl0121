@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 public interface DiscountStrategy {
-    Optional<Discount> evaluateDiscount(Orders orders);
-
+    Optional<Discount> evaluateDiscount(Orders orders, LocalDate date);
     boolean isApplicable(LocalDate date);
 }
+

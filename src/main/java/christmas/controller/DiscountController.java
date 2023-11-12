@@ -16,9 +16,9 @@ public class DiscountController {
 
     public List<Discount> proceedDiscount(Orders orders, LocalDate date) {
         return strategyFactory.getStrategiesForDate(date).stream()
-                .map(strategy -> strategy.evaluateDiscount(orders))
-                .filter(Optional::isPresent)
-                .map(Optional::get)
+                .map(strategy -> strategy.evaluateDiscount(orders, date))
+                .flatMap(Optional::stream)
                 .toList();
     }
 }
+
