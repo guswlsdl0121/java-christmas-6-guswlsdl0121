@@ -9,12 +9,12 @@ import java.util.function.Predicate;
 public class Orders {
     private final List<OrderItem> orderItems;
 
-    private Orders() {
-        this.orderItems = new ArrayList<>();
+    private Orders(List<OrderItem> orderItems) {
+        this.orderItems = new ArrayList<>(orderItems);
     }
 
-    public static Orders create() {
-        return new Orders();
+    public static Orders fromOrderItems(List<OrderItem> orderItems) {
+        return new Orders(orderItems);
     }
 
     public void addMenu(OrderItem orderItem) {
