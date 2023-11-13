@@ -14,7 +14,7 @@ class DateUtilTest {
         LocalDate expectedDate = LocalDate.of(2023, 12, 1);
 
         //when
-        LocalDate actualDate = DateUtil.getEventLocalDate(1);
+        LocalDate actualDate = DateUtil.createValidDate(1);
 
         //then
         Assertions.assertEquals(expectedDate, actualDate);
