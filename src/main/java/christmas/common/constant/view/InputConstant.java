@@ -3,7 +3,8 @@ package christmas.common.constant.view;
 public enum InputConstant {
     ITEM_SEPARATOR(","),
     QUANTITY_SEPARATOR("-"),
-    WHITESPACE(" ");
+    WHITESPACE(" "),
+    COLON(":");
 
     private final String value;
 

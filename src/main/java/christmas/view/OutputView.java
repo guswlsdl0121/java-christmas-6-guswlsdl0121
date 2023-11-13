@@ -1,34 +1,39 @@
 package christmas.view;
 
-import christmas.common.constant.view.OutputMessage;
+import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalAmount;
 import christmas.vo.order.TotalOrder;
 
 public class OutputView {
     public static void printStartMessage() {
-        System.out.println(OutputMessage.GREETING.getMessage());
+        System.out.println(OutputViewFormatter.formatStartMessage());
     }
 
     public static void printAnswerDateMessage() {
-        System.out.println(OutputMessage.ASK_DATE.getMessage());
+        System.out.println(OutputViewFormatter.formatAskDateMessage());
     }
 
     public static void printAnswerOrder() {
-        System.out.println(OutputMessage.ASK_ORDER.getMessage());
+        System.out.println(OutputViewFormatter.formatAskOrderMessage());
     }
 
     public static void printError(String errorMessage) {
-        System.out.println(errorMessage);
+        System.out.println(OutputViewFormatter.formatErrorMessage(errorMessage));
     }
 
     public static void printTotalOrder(TotalOrder totalOrder) {
-        String formattedOrder = OutputViewFormatter.formatTotalOrder(totalOrder);
-        System.out.println(formattedOrder);
+        System.out.println(OutputViewFormatter.formatTotalOrder(totalOrder));
     }
 
     public static void printBeforeDiscount(TotalAmount totalAmount) {
-        String formattedAmount = OutputViewFormatter.formatCurrency(totalAmount.amount());
-        System.out.println(OutputMessage.TOTAL_BEFORE_DISCOUNT.getMessage());
-        System.out.println(formattedAmount);
+        System.out.println(OutputViewFormatter.formatBeforeDiscount(totalAmount));
+    }
+
+    public static void printRewardItem(OrderItem rewardItem) {
+        System.out.println(OutputViewFormatter.formatRewardItem(rewardItem));
+    }
+
+    public static void printNoReward() {
+        System.out.println(OutputViewFormatter.formatNoReward());
     }
 }

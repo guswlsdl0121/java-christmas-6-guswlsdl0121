@@ -8,7 +8,14 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class InputController {
-    public TotalOrder getTotalOrder() {
+
+    public TotalOrder proceedInput() {
+        TotalOrder totalOrder = createTotalOrder();
+        OutputView.printTotalOrder(totalOrder);
+        return totalOrder;
+    }
+
+    private TotalOrder createTotalOrder() {
         LocalDate localDate = inputDate();
         List<OrderItem> orderItems = inputOrderItems();
         return new TotalOrder(localDate, orderItems);
