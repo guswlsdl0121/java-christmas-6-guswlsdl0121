@@ -12,8 +12,9 @@ import christmas.input.validator.order.OrderFormatValidator;
 import christmas.input.validator.order.OrderItemValidator;
 import christmas.view.driver.DateViewDriver;
 import christmas.view.driver.OrderViewDriver;
-import christmas.vo.order.OrderItems;
+import christmas.vo.order.OrderItem;
 import java.time.LocalDate;
+import java.util.List;
 
 public class InputConfig {
     private InputConfig() {
@@ -27,7 +28,7 @@ public class InputConfig {
         );
     }
 
-    public static InputHandler<OrderParseResult, OrderItems> createOrderItems() {
+    public static InputHandler<OrderParseResult, List<OrderItem>> createOrderItems() {
         return new InputHandler<>(
                 new OrderParser(new OrderFormatValidator()),
                 new OrderCreator(new OrderItemValidator()),

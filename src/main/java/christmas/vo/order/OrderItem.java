@@ -24,6 +24,10 @@ public record OrderItem(Menu menu, MenuQuantity quantity) {
         return menu.getMenuName();
     }
 
+    public String getKoreanName() {
+        return menu.getKoranName();
+    }
+
     public int getQuantity() {
         return quantity.quantity();
     }

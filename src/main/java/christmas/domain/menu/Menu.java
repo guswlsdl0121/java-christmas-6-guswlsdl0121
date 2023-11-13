@@ -59,6 +59,10 @@ public enum Menu {
         return this.menuType == MenuType.BEVERAGE;
     }
 
+    public String getKoranName() {
+        return menuName.getKoranName();
+    }
+
     public String getMenuName() {
         return menuName.name();
     }

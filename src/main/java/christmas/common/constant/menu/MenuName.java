@@ -23,5 +23,9 @@ public enum MenuName {
     public boolean matches(String name) {
         return this.name.equals(name);
     }
+
+    public String getKoranName() {
+        return name;
+    }
 }
 

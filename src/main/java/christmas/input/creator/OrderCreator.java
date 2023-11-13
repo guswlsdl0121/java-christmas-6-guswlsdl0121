@@ -3,10 +3,9 @@ package christmas.input.creator;
 import christmas.input.result.OrderParseResult;
 import christmas.input.validator.InputValidator;
 import christmas.vo.order.OrderItem;
-import christmas.vo.order.OrderItems;
 import java.util.List;
 
-public class OrderCreator implements ResultCreator<OrderParseResult, OrderItems> {
+public class OrderCreator implements ResultCreator<OrderParseResult, List<OrderItem>> {
     private final InputValidator<List<OrderItem>> inputValidator;
 
     public OrderCreator(InputValidator<List<OrderItem>> inputValidator) {
@@ -14,8 +13,8 @@ public class OrderCreator implements ResultCreator<OrderParseResult, OrderItems>
     }
 
     @Override
-    public OrderItems create(OrderParseResult inputResult) {
+    public List<OrderItem> create(OrderParseResult inputResult) {
         inputValidator.validate(inputResult.orderItems());
-        return new OrderItems(inputResult.orderItems());
+        return inputResult.orderItems();
     }
 }

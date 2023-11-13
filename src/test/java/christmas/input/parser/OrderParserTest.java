@@ -9,7 +9,8 @@ import christmas.input.creator.OrderCreator;
 import christmas.input.result.OrderParseResult;
 import christmas.input.validator.order.OrderFormatValidator;
 import christmas.input.validator.order.OrderItemValidator;
-import christmas.vo.order.OrderItems;
+import christmas.vo.order.OrderItem;
+import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -48,8 +49,8 @@ class OrderParserTest {
     void testValidOrderParsing(String input, int expectedItemCount) {
         OrderParseResult parseResult = parser.parse(input);
         assertNotNull(parseResult);
-        OrderItems createdOrderItems = creator.create(parseResult);
-        assertEquals(expectedItemCount, createdOrderItems.orderItems().size());
+        List<OrderItem> createdOrderItems = creator.create(parseResult);
+        assertEquals(expectedItemCount, createdOrderItems.size());
     }
 
     @ParameterizedTest
