@@ -1,29 +1,34 @@
-package christmas.common.parser;
+package christmas.input.parser;
 
 import christmas.common.constant.error.ErrorMessage;
 import christmas.common.constant.view.InputConstant;
 import christmas.common.util.InputUtil;
-import christmas.common.validator.OrderValidator;
 import christmas.domain.menu.Menu;
+import christmas.input.result.OrderParseResult;
+import christmas.input.validator.InputValidator;
 import christmas.vo.order.MenuQuantity;
 import christmas.vo.order.OrderItem;
-import christmas.vo.order.OrderItems;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class OrderInputParser implements InputParser<OrderItems> {
+public class OrderParser implements InputParser<OrderParseResult> {
     private static final String DELEMETER = InputConstant.ITEM_SEPARATOR.getValue();
+    private final InputValidator<String> inputValidator;
+
+    public OrderParser(InputValidator<String> inputValidator) {
+        this.inputValidator = inputValidator;
+    }
 
     @Override
-    public OrderItems parse(String input) {
-        OrderValidator.validateOrderInput(input);
+    public OrderParseResult parse(String input) {
+        inputValidator.validate(input);
 
         List<OrderItem> orderItems = Arrays.stream(input.split(DELEMETER))
                 .map(this::parseOrderItem)
                 .collect(Collectors.toList());
 
-        return new OrderItems(orderItems);
+        return new OrderParseResult(orderItems);
     }
 
     private OrderItem parseOrderItem(String itemInput) {

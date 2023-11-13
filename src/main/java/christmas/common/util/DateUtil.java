@@ -1,13 +1,19 @@
 package christmas.common.util;
 
+import christmas.common.constant.error.ErrorMessage;
 import christmas.common.constant.event.DateConfig;
+import java.time.DateTimeException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class DateUtil {
     // 지정된 날짜 반환
-    public static LocalDate getEventLocalDate(int day) {
-        return LocalDate.of(DateConfig.YEAR.getValue(), DateConfig.MONTH.getValue(), day);
+    public static LocalDate createValidDate(int day) {
+        try {
+            return LocalDate.of(DateConfig.YEAR.getValue(), DateConfig.MONTH.getValue(), day);
+        } catch (DateTimeException e) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DATE.getMessage());
+        }
     }
 
     // D-Day 이벤트 기간인지 확인

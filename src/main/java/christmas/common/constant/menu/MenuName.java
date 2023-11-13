@@ -3,7 +3,7 @@ package christmas.common.constant.menu;
 public enum MenuName {
     MUSHROOM_SOUP("양송이수프"),
     TAPAS("타파스"),
-    CAESAR_SALAD("시저셀러드"),
+    CAESAR_SALAD("시저샐러드"),
     T_BONE_STEAK("티본스테이크"),
     BBQ_RIBS("바비큐립"),
     SEAFOOD_PASTA("해산물파스타"),

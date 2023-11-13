@@ -1,6 +1,6 @@
 package christmas.controller;
 
-import christmas.common.config.InputConfig;
+import christmas.config.InputConfig;
 import christmas.view.OutputView;
 import christmas.vo.order.OrderItems;
 import java.time.LocalDate;

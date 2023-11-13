@@ -16,6 +16,18 @@ public record OrderItem(Menu menu, MenuQuantity quantity) {
         return menu.isMain();
     }
 
+    public boolean isBeverageOrder() {
+        return menu.isBeverage();
+    }
+
+    public String getMenuName() {
+        return menu.getMenuName();
+    }
+
+    public int getQuantity() {
+        return quantity.quantity();
+    }
+
     public int calculateDiscount(int discountPerItem) {
         return quantity.quantity() * discountPerItem;
     }
