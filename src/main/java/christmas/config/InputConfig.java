@@ -17,10 +17,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class InputConfig {
-    private InputConfig() {
-    }
 
-    public static InputHandler<DateParseResult, LocalDate> createDate() {
+    public static InputHandler<DateParseResult, LocalDate> inputDate() {
         return new InputHandler<>(
                 new DateParser(new DateValidator()),
                 new DateCreator(),
@@ -28,7 +26,7 @@ public class InputConfig {
         );
     }
 
-    public static InputHandler<OrderParseResult, List<OrderItem>> createOrderItems() {
+    public static InputHandler<OrderParseResult, List<OrderItem>> inputOrderItems() {
         return new InputHandler<>(
                 new OrderParser(new OrderFormatValidator()),
                 new OrderCreator(new OrderItemValidator()),

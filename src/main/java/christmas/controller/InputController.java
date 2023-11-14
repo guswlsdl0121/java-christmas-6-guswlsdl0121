@@ -1,32 +1,26 @@
 package christmas.controller;
 
-import christmas.config.InputConfig;
-import christmas.view.OutputView;
+import christmas.input.InputHandler;
+import christmas.input.result.DateParseResult;
+import christmas.input.result.OrderParseResult;
 import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalOrder;
 import java.time.LocalDate;
 import java.util.List;
 
 public class InputController {
+    private final InputHandler<DateParseResult, LocalDate> dateInputHandler;
+    private final InputHandler<OrderParseResult, List<OrderItem>> orderInputHandler;
+
+    public InputController(InputHandler<DateParseResult, LocalDate> dateInputHandler,
+                            InputHandler<OrderParseResult, List<OrderItem>> orderInputHandler) {
+        this.dateInputHandler = dateInputHandler;
+        this.orderInputHandler = orderInputHandler;
+    }
 
     public TotalOrder proceedInput() {
-        TotalOrder totalOrder = createTotalOrder();
-        OutputView.printTotalOrder(totalOrder);
-        return totalOrder;
-    }
-
-    private TotalOrder createTotalOrder() {
-        LocalDate localDate = inputDate();
-        List<OrderItem> orderItems = inputOrderItems();
-        return new TotalOrder(localDate, orderItems);
-    }
-
-    private LocalDate inputDate() {
-        OutputView.printStartMessage();
-        return InputConfig.createDate().tryInput();
-    }
-
-    private List<OrderItem> inputOrderItems() {
-        return InputConfig.createOrderItems().tryInput();
+        LocalDate date = dateInputHandler.tryInput();
+        List<OrderItem> orderItems = orderInputHandler.tryInput();
+        return new TotalOrder(date, orderItems);
     }
 }
