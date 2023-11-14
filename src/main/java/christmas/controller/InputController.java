@@ -14,7 +14,7 @@ public class InputController {
     private final InputHandler<OrderParseResult, List<OrderItem>> orderInputHandler;
 
     public InputController(InputHandler<DateParseResult, LocalDate> dateInputHandler,
-                            InputHandler<OrderParseResult, List<OrderItem>> orderInputHandler) {
+                           InputHandler<OrderParseResult, List<OrderItem>> orderInputHandler) {
         this.dateInputHandler = dateInputHandler;
         this.orderInputHandler = orderInputHandler;
     }

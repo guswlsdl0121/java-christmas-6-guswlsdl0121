@@ -1,5 +1,6 @@
 package christmas;
 
+import christmas.common.constant.event.EventBadge;
 import christmas.common.factory.DiscountStrategyFactory;
 import christmas.config.InputConfig;
 import christmas.config.RewardConfig;
@@ -31,6 +32,9 @@ public class Launcher {
         DiscountResult discountResult = calculateDiscountResult(discounts);
         int totalBenefit = calculateAndPrintTotalBenefit(discountResult, reward);
         calculateAndPrintDiscountedTotal(discountResult, totalAmount);
+
+        List<EventBadge> eventBadges = EventBadge.determineBadges(totalBenefit);
+        OutputView.printBadges(eventBadges);
     }
 
     private static TotalOrder inputOrder() {
@@ -76,6 +80,7 @@ public class Launcher {
 
     private static int calculateAndPrintTotalBenefit(DiscountResult discountResult, Optional<OrderItem> reward) {
         ResultController resultController = new ResultController();
+        OutputView.printDiscounts(discountResult.getDiscounts(), reward);
         int totalBenefitAmount = resultController.getTotalBenefitAmount(discountResult, reward);
         OutputView.printTotalBenefitAmount(totalBenefitAmount);
         return totalBenefitAmount;

@@ -1,5 +1,6 @@
 package christmas.view.output;
 
+import christmas.common.constant.event.EventBadge;
 import christmas.common.constant.view.OutputMessage;
 import christmas.view.output.formatter.CommonFormatter;
 import christmas.view.output.formatter.DiscountFormatter;
@@ -62,5 +63,11 @@ public class OutputView {
     public static void printDiscountedTotalAmount(int discountedTotalAmount) {
         System.out.println(OutputMessage.TOTAL_AFTER_DISCOUNT.getMessage());
         System.out.println(CommonFormatter.formatDiscountedTotalAmount(discountedTotalAmount));
+    }
+
+    public static void printBadges(List<EventBadge> badges) {
+        System.out.println();
+        System.out.println(OutputMessage.EVENT_BADGE.getMessage());
+        System.out.println(CommonFormatter.formatBadges(badges));
     }
 }

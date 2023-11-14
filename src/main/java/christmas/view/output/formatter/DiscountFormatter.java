@@ -14,7 +14,7 @@ public class DiscountFormatter {
     private static final String WHITESPACE = InputConstant.WHITESPACE.getValue();
     private static final String COLON = InputConstant.COLON.getValue();
     private static final String REWARD = OutputMessage.REWARD_EVENT.getMessage();
-    private static final String NONE = OutputMessage.NONE.getMessage();
+    private static final String NONE = OutputMessage.NOTHING.getMessage();
 
     public static String formatDiscounts(List<Discount> discounts, Optional<OrderItem> rewardItem) {
         if (discounts.isEmpty() && rewardItem.isEmpty()) {

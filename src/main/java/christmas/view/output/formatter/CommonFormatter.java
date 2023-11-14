@@ -1,10 +1,12 @@
 package christmas.view.output.formatter;
 
+import christmas.common.constant.event.EventBadge;
 import christmas.common.constant.view.InputConstant;
 import christmas.common.constant.view.OutputMessage;
 import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalAmount;
 import java.text.NumberFormat;
+import java.util.List;
 import java.util.Locale;
 
 public class CommonFormatter {
@@ -12,7 +14,8 @@ public class CommonFormatter {
     private static final String WHITESPACE = InputConstant.WHITESPACE.getValue();
     private static final String ITEM_UNIT = OutputMessage.ITEM_UNIT.getMessage();
     private static final String DASH = InputConstant.QUANTITY_SEPARATOR.getValue();
-    private static final int NOTHING = 0;
+    private static final String NOTHING = OutputMessage.NOTHING.getMessage();
+    private static final int NOT_EXIST = 0;
 
     public static String formatCurrency(int amount) {
         return NumberFormat.getNumberInstance(Locale.KOREA).format(amount) + WON_UNIT;
@@ -27,8 +30,8 @@ public class CommonFormatter {
     }
 
     public static String formatTotalBenefitAmount(int totalBenefitAmount) {
-        if (totalBenefitAmount == NOTHING) {
-            return NOTHING + ITEM_UNIT;
+        if (totalBenefitAmount == NOT_EXIST) {
+            return NOT_EXIST + ITEM_UNIT;
         }
 
         return DASH + formatCurrency(totalBenefitAmount);
@@ -36,5 +39,18 @@ public class CommonFormatter {
 
     public static String formatDiscountedTotalAmount(int discountedTotalAmount) {
         return formatCurrency(discountedTotalAmount);
+    }
+
+    public static String formatBadges(List<EventBadge> badges) {
+        if (badges.isEmpty()) {
+            return NOTHING;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (EventBadge badge : badges) {
+            sb.append(badge.getName());
+        }
+
+        return sb.toString();
     }
 }
