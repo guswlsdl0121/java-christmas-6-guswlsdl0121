@@ -51,13 +51,13 @@ class WeekendDiscountStrategyTest {
 
     @DisplayName("주말 할인 적용 여부 확인")
     private static Orders createOrdersWithoutMainDishes() {
-        Orders orders = Orders.create();
+        Orders orders = new Orders();
         orders.addMenu(new OrderItem(Menu.CHOCO_CAKE, new MenuQuantity(1)));
         return orders;
     }
 
     private static Orders createOrdersWithMainDishes(int mainDishCount) {
-        Orders orders = Orders.create();
+        Orders orders = new Orders();
         orders.addMenu(new OrderItem(Menu.T_BONE_STEAK, new MenuQuantity(mainDishCount)));
         return orders;
     }

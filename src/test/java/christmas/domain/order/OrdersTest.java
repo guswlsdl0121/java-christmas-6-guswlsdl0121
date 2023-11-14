@@ -34,7 +34,7 @@ public class OrdersTest {
     @MethodSource("dataProvider")
     @DisplayName("할인 전 총 주문 금액 계산 테스트")
     public void testCalculateTotalPrice(OrderItem[] orderItems, int expectedTotalPrice) {
-        Orders orders = Orders.create();
+        Orders orders = new Orders();
         for (OrderItem item : orderItems) {
             orders.addMenu(item);
         }

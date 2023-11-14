@@ -14,7 +14,7 @@ public class DiscountController {
         this.strategyFactory = strategyFactory;
     }
 
-    public List<Discount> proceedDiscount(Orders orders, LocalDate date) {
+    public List<Discount> applyDiscount(Orders orders, LocalDate date) {
         return strategyFactory.getStrategiesForDate(date).stream()
                 .map(strategy -> strategy.evaluateDiscount(orders, date))
                 .flatMap(Optional::stream)

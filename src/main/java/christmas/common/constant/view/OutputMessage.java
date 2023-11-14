@@ -13,7 +13,10 @@ public enum OutputMessage {
     TOTAL_AFTER_DISCOUNT("<할인 후 예상 결제 금액>"),
     EVENT_BADGE("<12월 이벤트 배지>"),
     WON_UNIT("원"),
-    ITEM_UNIT("개");
+    ITEM_UNIT("개"),
+    REWARD_EVENT("증정 이벤트"),
+    NONE(""),
+    NOTHING("없음");
 
     private final String message;
 

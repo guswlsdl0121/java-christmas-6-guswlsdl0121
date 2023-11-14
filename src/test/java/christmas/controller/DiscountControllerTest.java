@@ -27,13 +27,13 @@ class DiscountControllerTest {
     @Test
     @DisplayName("할인 중복 적용 Test")
     void testProceedDiscountWithMultipleDiscounts() {
-        Orders orders = Orders.create();
+        Orders orders = new Orders();
         orders.addMenu(new OrderItem(Menu.T_BONE_STEAK, new MenuQuantity(1))); // 메인
         orders.addMenu(new OrderItem(Menu.BBQ_RIBS, new MenuQuantity(1))); // 메인
         orders.addMenu(new OrderItem(Menu.CHOCO_CAKE, new MenuQuantity(2))); // 디저트
         orders.addMenu(new OrderItem(Menu.ZERO_COLA, new MenuQuantity(1)));
 
-        List<Discount> totalDiscount = discountController.proceedDiscount(orders, LocalDate.of(2023, 12, 3));
+        List<Discount> totalDiscount = discountController.applyDiscount(orders, LocalDate.of(2023, 12, 3));
 
         int expectedDiscountAmount = 6246;
 

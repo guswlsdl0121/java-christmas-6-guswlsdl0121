@@ -1,7 +1,7 @@
 package christmas.view.driver;
 
-import christmas.view.InputView;
-import christmas.view.OutputView;
+import christmas.view.input.InputView;
+import christmas.view.output.OutputView;
 
 public abstract class AbstractViewDriver implements ViewDriver {
     @Override

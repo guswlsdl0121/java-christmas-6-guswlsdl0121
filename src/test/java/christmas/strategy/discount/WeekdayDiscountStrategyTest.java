@@ -36,13 +36,13 @@ class WeekdayDiscountStrategyTest {
     }
 
     private static Orders createOrdersWithoutDesserts() {
-        Orders orders = Orders.create();
+        Orders orders = new Orders();
         orders.addMenu(new OrderItem(Menu.T_BONE_STEAK, new MenuQuantity(1)));
         return orders;
     }
 
     private static Orders createOrdersWithDesserts(int dessertCount) {
-        Orders orders = Orders.create();
+        Orders orders = new Orders();
         orders.addMenu(new OrderItem(Menu.CHOCO_CAKE, new MenuQuantity(dessertCount)));
         return orders;
     }

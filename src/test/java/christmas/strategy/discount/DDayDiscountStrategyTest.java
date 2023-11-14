@@ -30,7 +30,7 @@ class DDayDiscountStrategyTest {
     void testDDayDiscountStrategy(LocalDate date, int expectedDiscountAmount) {
         //given
         DDayDiscountStrategy strategy = new DDayDiscountStrategy();
-        Orders mockOrders = Orders.create();
+        Orders mockOrders = new Orders();
 
         //when
         Optional<Discount> result = strategy.evaluateDiscount(mockOrders, date);

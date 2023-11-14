@@ -3,6 +3,7 @@ package christmas.controller;
 import christmas.input.InputHandler;
 import christmas.input.result.DateParseResult;
 import christmas.input.result.OrderParseResult;
+import christmas.view.output.OutputView;
 import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalOrder;
 import java.time.LocalDate;
@@ -19,8 +20,11 @@ public class InputController {
     }
 
     public TotalOrder proceedInput() {
+        OutputView.printStartMessage();
+
         LocalDate date = dateInputHandler.tryInput();
         List<OrderItem> orderItems = orderInputHandler.tryInput();
+
         return new TotalOrder(date, orderItems);
     }
 }
