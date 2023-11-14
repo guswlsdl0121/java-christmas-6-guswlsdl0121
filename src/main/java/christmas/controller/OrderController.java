@@ -2,7 +2,6 @@ package christmas.controller;
 
 import christmas.domain.Orders;
 import christmas.vo.order.OrderItem;
-import christmas.vo.order.TotalAmount;
 import christmas.vo.order.TotalOrder;
 import java.util.List;
 
@@ -17,9 +16,5 @@ public class OrderController {
         List<OrderItem> orderItems = totalOrder.orderItems();
         orders.addOrderItems(orderItems);
         return orders;
-    }
-
-    public TotalAmount calculateTotalBeforeDiscount() {
-        return orders.calculateTotalAmountBeforeDiscount();
     }
 }
