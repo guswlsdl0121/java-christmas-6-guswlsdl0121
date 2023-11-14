@@ -1,4 +1,4 @@
-package christmas.strategy.discount;
+package christmas.domain.strategy.discount;
 
 import christmas.common.constant.event.DiscountType;
 import christmas.domain.strategy.discount.DDayDiscountStrategy;

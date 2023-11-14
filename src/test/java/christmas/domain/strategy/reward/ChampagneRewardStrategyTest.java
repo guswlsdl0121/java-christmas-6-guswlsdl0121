@@ -1,4 +1,4 @@
-package christmas.strategy.reward;
+package christmas.domain.strategy.reward;
 
 import christmas.domain.strategy.reward.ChampagneRewardStrategy;
 import christmas.domain.Menu;

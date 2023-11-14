@@ -1,4 +1,4 @@
-package christmas.strategy.discount;
+package christmas.domain.strategy.discount;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
