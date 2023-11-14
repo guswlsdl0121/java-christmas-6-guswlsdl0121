@@ -3,8 +3,8 @@ package christmas.controller;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import christmas.common.factory.DiscountStrategyFactory;
-import christmas.domain.menu.Menu;
-import christmas.domain.order.Orders;
+import christmas.domain.Menu;
+import christmas.domain.Orders;
 import christmas.vo.discount.Discount;
 import christmas.vo.order.MenuQuantity;
 import christmas.vo.order.OrderItem;

@@ -1,7 +1,7 @@
 package christmas.config;
 
-import christmas.common.strategy.reward.ChampagneRewardStrategy;
-import christmas.common.strategy.reward.RewardStrategy;
+import christmas.domain.strategy.reward.ChampagneRewardStrategy;
+import christmas.domain.strategy.reward.RewardStrategy;
 
 public class RewardConfig {
     public static RewardStrategy createRewardStrategy() {

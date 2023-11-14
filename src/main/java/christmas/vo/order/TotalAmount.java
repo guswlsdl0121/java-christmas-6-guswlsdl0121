@@ -9,4 +9,8 @@ public record TotalAmount(int amount) {
     public int divideBy(int divisor) {
         return amount / divisor;
     }
+
+    public int calculateDiscountedAmount(int discountSum) {
+        return amount - discountSum;
+    }
 }

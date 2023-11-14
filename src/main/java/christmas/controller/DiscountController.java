@@ -1,7 +1,7 @@
 package christmas.controller;
 
 import christmas.common.factory.DiscountStrategyFactory;
-import christmas.domain.order.Orders;
+import christmas.domain.Orders;
 import christmas.vo.discount.Discount;
 import java.time.LocalDate;
 import java.util.List;

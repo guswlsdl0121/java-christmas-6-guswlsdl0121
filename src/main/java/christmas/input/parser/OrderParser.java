@@ -3,7 +3,7 @@ package christmas.input.parser;
 import christmas.common.constant.error.ErrorMessage;
 import christmas.common.constant.view.InputConstant;
 import christmas.common.util.InputUtil;
-import christmas.domain.menu.Menu;
+import christmas.domain.Menu;
 import christmas.input.result.OrderParseResult;
 import christmas.input.validator.InputValidator;
 import christmas.vo.order.MenuQuantity;

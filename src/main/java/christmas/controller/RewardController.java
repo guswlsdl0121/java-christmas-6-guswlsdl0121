@@ -1,7 +1,6 @@
 package christmas.controller;
 
-import christmas.common.strategy.reward.RewardStrategy;
-import christmas.view.output.OutputView;
+import christmas.domain.strategy.reward.RewardStrategy;
 import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalAmount;
 import java.util.Optional;

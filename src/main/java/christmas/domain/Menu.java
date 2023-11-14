@@ -1,4 +1,4 @@
-package christmas.domain.menu;
+package christmas.domain;
 
 import christmas.common.constant.menu.MenuName;
 import christmas.common.constant.menu.MenuType;

@@ -1,7 +1,6 @@
 package christmas.controller;
 
-import christmas.domain.order.Orders;
-import christmas.view.output.OutputView;
+import christmas.domain.Orders;
 import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalAmount;
 import christmas.vo.order.TotalOrder;

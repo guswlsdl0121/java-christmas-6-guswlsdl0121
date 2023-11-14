@@ -1,6 +1,6 @@
 package christmas.common.constant.event;
 
-import christmas.domain.menu.Menu;
+import christmas.domain.Menu;
 
 public enum RewardConfig {
     CHAMPAGNE_REWARD(Menu.CHAMPAGNE, 120000);

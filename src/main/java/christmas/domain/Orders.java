@@ -1,4 +1,4 @@
-package christmas.domain.order;
+package christmas.domain;
 
 import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalAmount;

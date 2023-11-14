@@ -1,6 +1,6 @@
-package christmas.common.strategy.discount;
+package christmas.domain.strategy.discount;
 
-import christmas.domain.order.Orders;
+import christmas.domain.Orders;
 import christmas.vo.discount.Discount;
 import java.time.LocalDate;
 import java.util.Optional;

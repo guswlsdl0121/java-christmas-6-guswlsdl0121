@@ -1,6 +1,6 @@
 package christmas.vo.order;
 
-import christmas.domain.menu.Menu;
+import christmas.domain.Menu;
 
 public record OrderItem(Menu menu, MenuQuantity quantity) {
 

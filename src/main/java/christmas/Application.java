@@ -6,8 +6,10 @@ import christmas.config.RewardConfig;
 import christmas.controller.DiscountController;
 import christmas.controller.InputController;
 import christmas.controller.OrderController;
+import christmas.controller.ResultController;
 import christmas.controller.RewardController;
-import christmas.domain.order.Orders;
+import christmas.domain.DiscountResult;
+import christmas.domain.Orders;
 import christmas.view.output.OutputView;
 import christmas.vo.discount.Discount;
 import christmas.vo.order.OrderItem;
@@ -44,5 +46,18 @@ public class Application {
         DiscountController discountController = new DiscountController(new DiscountStrategyFactory());
         List<Discount> discounts = discountController.applyDiscount(orders, totalOrder.localDate());
         OutputView.printDiscounts(discounts, reward);
+
+        ResultController resultController = new ResultController();
+
+        // DiscountResult 객체 생성
+        DiscountResult discountResult = resultController.createDiscountResult(discounts);
+
+        // 총 혜택 금액 계산 및 출력
+        int totalBenefitAmount = resultController.getTotalBenefitAmount(discountResult, reward);
+        OutputView.printTotalBenefitAmount(totalBenefitAmount);
+
+        // 할인 후 예상 결제 금액 계산 및 출력
+        int discountedTotalAmount = resultController.getDiscountedTotalAmount(discountResult, totalAmount);
+        OutputView.printDiscountedTotalAmount(discountedTotalAmount);
     }
 }

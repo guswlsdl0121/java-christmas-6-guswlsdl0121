@@ -1,9 +1,9 @@
-package christmas.common.strategy.discount;
+package christmas.domain.strategy.discount;
 
 import christmas.common.constant.event.DiscountConfig;
 import christmas.common.constant.event.DiscountType;
 import christmas.common.util.DateUtil;
-import christmas.domain.order.Orders;
+import christmas.domain.Orders;
 import java.time.LocalDate;
 
 

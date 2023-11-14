@@ -3,9 +3,9 @@ package christmas.strategy.discount;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import christmas.common.constant.event.DiscountType;
-import christmas.common.strategy.discount.WeekendDiscountStrategy;
-import christmas.domain.menu.Menu;
-import christmas.domain.order.Orders;
+import christmas.domain.strategy.discount.WeekendDiscountStrategy;
+import christmas.domain.Menu;
+import christmas.domain.Orders;
 import christmas.vo.discount.Discount;
 import christmas.vo.discount.DiscountAmount;
 import christmas.vo.order.MenuQuantity;

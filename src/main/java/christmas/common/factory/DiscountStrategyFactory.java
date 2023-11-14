@@ -1,10 +1,10 @@
 package christmas.common.factory;
 
-import christmas.common.strategy.discount.DDayDiscountStrategy;
-import christmas.common.strategy.discount.DiscountStrategy;
-import christmas.common.strategy.discount.SpecialDiscountStrategy;
-import christmas.common.strategy.discount.WeekdayDiscountStrategy;
-import christmas.common.strategy.discount.WeekendDiscountStrategy;
+import christmas.domain.strategy.discount.DDayDiscountStrategy;
+import christmas.domain.strategy.discount.DiscountStrategy;
+import christmas.domain.strategy.discount.SpecialDiscountStrategy;
+import christmas.domain.strategy.discount.WeekdayDiscountStrategy;
+import christmas.domain.strategy.discount.WeekendDiscountStrategy;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;

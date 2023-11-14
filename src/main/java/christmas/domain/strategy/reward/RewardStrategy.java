@@ -1,4 +1,4 @@
-package christmas.common.strategy.reward;
+package christmas.domain.strategy.reward;
 
 import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalAmount;
