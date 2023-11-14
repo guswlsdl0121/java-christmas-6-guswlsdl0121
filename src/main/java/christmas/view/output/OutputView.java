@@ -52,4 +52,15 @@ public class OutputView {
     public static void printDiscounts(List<Discount> discounts, Optional<OrderItem> rewardItem) {
         System.out.println(DiscountFormatter.formatDiscounts(discounts, rewardItem));
     }
+
+    public static void printTotalBenefitAmount(int totalBenefitAmount) {
+        System.out.println(OutputMessage.TOTAL_BENEFIT_AMOUNT.getMessage());
+        System.out.println(CommonFormatter.formatTotalBenefitAmount(totalBenefitAmount));
+        System.out.println();
+    }
+
+    public static void printDiscountedTotalAmount(int discountedTotalAmount) {
+        System.out.println(OutputMessage.TOTAL_AFTER_DISCOUNT.getMessage());
+        System.out.println(CommonFormatter.formatDiscountedTotalAmount(discountedTotalAmount));
+    }
 }
