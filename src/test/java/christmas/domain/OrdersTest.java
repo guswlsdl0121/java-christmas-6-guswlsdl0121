@@ -38,7 +38,7 @@ public class OrdersTest {
             orders.addMenu(item);
         }
 
-        int actualTotalPrice = orders.calculateTotalAmountBeforeDiscount().amount();
+        int actualTotalPrice = orders.calculateTotalAmount().amount();
 
         Assertions.assertEquals(expectedTotalPrice, actualTotalPrice);
     }

@@ -21,74 +21,76 @@ import java.util.Optional;
 
 public class Launcher {
     public static void run() {
-        // 기존 로직 유지
-        TotalOrder totalOrder = inputOrder();
-        Orders orders = processOrder(totalOrder);
-        TotalAmount totalAmount = calculateTotalAmount(orders);
-        Optional<OrderItem> reward = determineReward(totalAmount);
-        List<Discount> discounts = applyDiscounts(orders, totalOrder);
+        // 입력 처리
+        TotalOrder totalOrder = proceedOrder();
+
+        // 주문 처리
+        Orders orders = createOrder(totalOrder);
+
+        // 할인 전 총액 계산
+        TotalAmount totalAmount = calculateTotalAmountBeforeDiscount(orders);
+
+        // 보상 결정
+        Optional<OrderItem> reward = applyReward(totalAmount);
+
+        // 할인 적용
+        List<Discount> discounts = applyDiscount(totalOrder, orders);
 
         // 결과 계산 및 출력
-        DiscountResult discountResult = calculateDiscountResult(discounts);
-        int totalBenefit = calculateAndPrintTotalBenefit(discountResult, reward);
-        calculateAndPrintDiscountedTotal(discountResult, totalAmount);
+        int totalBenefitAmount = calculateResult(totalAmount, reward, discounts);
 
-        List<EventBadge> eventBadges = EventBadge.determineBadges(totalBenefit);
-        OutputView.printBadges(eventBadges);
+        // 이벤트 배지 결정 및 출력
+        determineBadge(totalBenefitAmount);
     }
 
-    private static TotalOrder inputOrder() {
-        InputController inputController = new InputController(
-                InputConfig.inputDate(),
-                InputConfig.inputOrderItems()
-        );
+    private static TotalOrder proceedOrder() {
+        InputController inputController = new InputController(InputConfig.inputDate(), InputConfig.inputOrderItems());
         TotalOrder totalOrder = inputController.proceedInput();
         OutputView.printTotalOrder(totalOrder);
         return totalOrder;
     }
 
-    private static Orders processOrder(TotalOrder totalOrder) {
+    private static Orders createOrder(TotalOrder totalOrder) {
         OrderController orderController = new OrderController();
-        return orderController.createOrder(totalOrder);
+        Orders orders = orderController.createOrder(totalOrder);
+        return orders;
     }
 
-    private static TotalAmount calculateTotalAmount(Orders orders) {
-        TotalAmount totalAmount = orders.calculateTotalAmountBeforeDiscount();
+    private static TotalAmount calculateTotalAmountBeforeDiscount(Orders orders) {
+        TotalAmount totalAmount = orders.calculateTotalAmount();
         OutputView.printBeforeDiscount(totalAmount);
         return totalAmount;
     }
 
-    private static Optional<OrderItem> determineReward(TotalAmount totalAmount) {
+    private static Optional<OrderItem> applyReward(TotalAmount totalAmount) {
         RewardController rewardController = new RewardController(RewardConfig.createRewardStrategy());
         Optional<OrderItem> reward = rewardController.applyReward(totalAmount);
-        reward.ifPresentOrElse(
-                OutputView::printRewardItem,
-                OutputView::printNoReward
-        );
+        reward.ifPresentOrElse(OutputView::printRewardItem, OutputView::printNoReward);
         return reward;
     }
 
-    private static List<Discount> applyDiscounts(Orders orders, TotalOrder totalOrder) {
+    private static List<Discount> applyDiscount(TotalOrder totalOrder, Orders orders) {
         DiscountController discountController = new DiscountController(new DiscountStrategyFactory());
-        return discountController.applyDiscount(orders, totalOrder.localDate());
+        List<Discount> discounts = discountController.applyDiscount(orders, totalOrder.localDate());
+        return discounts;
     }
 
-    private static DiscountResult calculateDiscountResult(List<Discount> discounts) {
+    private static int calculateResult(TotalAmount totalAmount, Optional<OrderItem> reward, List<Discount> discounts) {
         ResultController resultController = new ResultController();
-        return resultController.createDiscountResult(discounts);
-    }
-
-    private static int calculateAndPrintTotalBenefit(DiscountResult discountResult, Optional<OrderItem> reward) {
-        ResultController resultController = new ResultController();
+        DiscountResult discountResult = resultController.createDiscountResult(discounts);
         OutputView.printDiscounts(discountResult.getDiscounts(), reward);
+
         int totalBenefitAmount = resultController.getTotalBenefitAmount(discountResult, reward);
         OutputView.printTotalBenefitAmount(totalBenefitAmount);
+
+        int discountedTotalAmount = resultController.getDiscountedTotalAmount(discountResult, totalAmount);
+        OutputView.printDiscountedTotalAmount(discountedTotalAmount);
+
         return totalBenefitAmount;
     }
 
-    private static void calculateAndPrintDiscountedTotal(DiscountResult discountResult, TotalAmount totalAmount) {
-        ResultController resultController = new ResultController();
-        int discountedTotalAmount = resultController.getDiscountedTotalAmount(discountResult, totalAmount);
-        OutputView.printDiscountedTotalAmount(discountedTotalAmount);
+    private static void determineBadge(int totalBenefitAmount) {
+        List<EventBadge> eventBadges = EventBadge.determineBadges(totalBenefitAmount);
+        OutputView.printBadges(eventBadges);
     }
 }

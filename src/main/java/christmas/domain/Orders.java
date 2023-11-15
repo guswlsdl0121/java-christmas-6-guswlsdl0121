@@ -21,7 +21,7 @@ public class Orders {
         orderItems.add(orderItem);
     }
 
-    public TotalAmount calculateTotalAmountBeforeDiscount() {
+    public TotalAmount calculateTotalAmount() {
         int total = orderItems.stream()
                 .mapToInt(OrderItem::calculateTotalPrice)
                 .sum();

@@ -31,7 +31,7 @@ public class CommonFormatter {
 
     public static String formatTotalBenefitAmount(int totalBenefitAmount) {
         if (totalBenefitAmount == NOT_EXIST) {
-            return NOT_EXIST + ITEM_UNIT;
+            return NOT_EXIST + WON_UNIT;
         }
 
         return DASH + formatCurrency(totalBenefitAmount);
