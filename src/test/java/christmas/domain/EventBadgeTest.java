@@ -1,6 +1,8 @@
 package christmas.domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.Arguments;
@@ -26,5 +28,11 @@ class EventBadgeTest {
     void testDetermineBadges(int totalBenefit, List<EventBadge> expectedBadges) {
         List<EventBadge> actualBadges = EventBadge.determineBadges(totalBenefit);
         assertEquals(expectedBadges, actualBadges);
+    }
+
+    @Test
+    @DisplayName("배지 get테스트")
+    void testGetBadges() {
+        Assertions.assertEquals("산타", EventBadge.SANTA.getName());
     }
 }
