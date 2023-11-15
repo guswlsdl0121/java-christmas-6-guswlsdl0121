@@ -25,7 +25,6 @@ public class OrderParser implements InputParser<OrderParseResult> {
     public OrderParseResult parse(String input) {
         String noSpaceInput = input.replaceAll(InputConstant.WHITE_SPACE_FORMAT.getValue(),
                 OutputMessage.NONE.getMessage());
-        System.out.println(noSpaceInput);
         inputValidator.validate(noSpaceInput);
         List<OrderItem> orderItems = Arrays.stream(noSpaceInput.split(DELEMETER))
                 .map(this::parseOrderItem)
