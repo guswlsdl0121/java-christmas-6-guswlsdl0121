@@ -1,6 +1,6 @@
 package christmas.view.output;
 
-import christmas.common.constant.event.EventBadge;
+import christmas.domain.EventBadge;
 import christmas.common.constant.view.OutputMessage;
 import christmas.view.output.formatter.CommonFormatter;
 import christmas.view.output.formatter.DiscountFormatter;

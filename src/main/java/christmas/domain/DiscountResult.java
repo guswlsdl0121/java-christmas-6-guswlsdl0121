@@ -6,14 +6,8 @@ import christmas.vo.order.TotalAmount;
 import java.util.List;
 import java.util.Optional;
 
-public class DiscountResult {
+public record DiscountResult(List<Discount> discounts) {
     private static final int NOTHING = 0;
-
-    private final List<Discount> discounts;
-
-    public DiscountResult(List<Discount> discounts) {
-        this.discounts = discounts;
-    }
 
     public int calculateTotalBenefit(Optional<OrderItem> reward) {
         int discountSum = calculateDiscountSum();
@@ -32,9 +26,5 @@ public class DiscountResult {
         return discounts.stream()
                 .mapToInt(Discount::calculateAmount)
                 .sum();
-    }
-
-    public List<Discount> getDiscounts() {
-        return discounts;
     }
 }
