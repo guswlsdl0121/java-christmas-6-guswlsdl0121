@@ -1,12 +1,17 @@
 package christmas.util;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import christmas.common.constant.error.ErrorMessage;
 import christmas.common.constant.event.DateConfig;
 import christmas.common.util.DateUtil;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.time.Month;
+import org.junit.jupiter.api.Test;
 
 class DateUtilTest {
 

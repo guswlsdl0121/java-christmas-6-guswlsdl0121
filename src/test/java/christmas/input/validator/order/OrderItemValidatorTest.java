@@ -1,14 +1,16 @@
 package christmas.input.validator.order;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import christmas.common.constant.error.ErrorMessage;
 import christmas.common.constant.order.OrderConstant;
 import christmas.domain.Menu;
 import christmas.vo.order.MenuQuantity;
 import christmas.vo.order.OrderItem;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
 class OrderItemValidatorTest {
 

@@ -1,8 +1,8 @@
 package christmas.view.output.formatter;
 
-import christmas.domain.EventBadge;
 import christmas.common.constant.view.InputConstant;
 import christmas.common.constant.view.OutputMessage;
+import christmas.domain.EventBadge;
 import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalAmount;
 import java.text.NumberFormat;

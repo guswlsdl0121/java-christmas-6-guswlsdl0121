@@ -1,6 +1,5 @@
 package christmas;
 
-import christmas.domain.EventBadge;
 import christmas.common.factory.DiscountStrategyFactory;
 import christmas.config.InputConfig;
 import christmas.config.RewardConfig;
@@ -10,6 +9,7 @@ import christmas.controller.OrderController;
 import christmas.controller.ResultController;
 import christmas.controller.RewardController;
 import christmas.domain.DiscountResult;
+import christmas.domain.EventBadge;
 import christmas.domain.Orders;
 import christmas.view.output.OutputView;
 import christmas.vo.discount.Discount;

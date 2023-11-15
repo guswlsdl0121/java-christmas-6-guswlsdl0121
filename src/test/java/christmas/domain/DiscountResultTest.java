@@ -1,17 +1,17 @@
 package christmas.domain;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import christmas.common.constant.event.DiscountType;
 import christmas.vo.discount.Discount;
 import christmas.vo.discount.DiscountAmount;
 import christmas.vo.order.MenuQuantity;
 import christmas.vo.order.OrderItem;
 import christmas.vo.order.TotalAmount;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 import java.util.Optional;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 class DiscountResultTest {
 
