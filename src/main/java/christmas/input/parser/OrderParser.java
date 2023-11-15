@@ -2,6 +2,7 @@ package christmas.input.parser;
 
 import christmas.common.constant.error.ErrorMessage;
 import christmas.common.constant.view.InputConstant;
+import christmas.common.constant.view.OutputMessage;
 import christmas.common.util.InputUtil;
 import christmas.domain.Menu;
 import christmas.input.result.OrderParseResult;
@@ -22,9 +23,11 @@ public class OrderParser implements InputParser<OrderParseResult> {
 
     @Override
     public OrderParseResult parse(String input) {
-        inputValidator.validate(input);
-
-        List<OrderItem> orderItems = Arrays.stream(input.split(DELEMETER))
+        String noSpaceInput = input.replaceAll(InputConstant.WHITE_SPACE_FORMAT.getValue(),
+                OutputMessage.NONE.getMessage());
+        System.out.println(noSpaceInput);
+        inputValidator.validate(noSpaceInput);
+        List<OrderItem> orderItems = Arrays.stream(noSpaceInput.split(DELEMETER))
                 .map(this::parseOrderItem)
                 .collect(Collectors.toList());
 

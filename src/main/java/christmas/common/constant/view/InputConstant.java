@@ -4,7 +4,8 @@ public enum InputConstant {
     ITEM_SEPARATOR(","),
     QUANTITY_SEPARATOR("-"),
     WHITESPACE(" "),
-    COLON(":");
+    COLON(":"),
+    WHITE_SPACE_FORMAT("\\s+");
 
     private final String value;
 
